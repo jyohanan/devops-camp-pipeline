@@ -6,7 +6,7 @@ agent {
  stage('Application repository') {
  steps {
  echo "Cloning application repository"
- sh 'git clone https://github.com/jyohanan/devops-camp-pipeline.git'
+ sh 'git clone 'https://github.com/jyohanan/afs-labs-student.git'
  }
  }
  stage('Application docker build') {
