@@ -27,7 +27,7 @@ env.APP_HASH = sh(script: 'git rev-parse --short HEAD', returnStdout: true).trim
  steps {
  echo "Building application image"
 
-withCredentials([usernameColonPassword(credentialsId: jyohanan-harbor-auth, variable: 'HARBOR-AUTH')]) {
+withCredentials([usernameColonPassword(credentialsId: 'jyohanan-harbor-auth', variable: 'HARBOR-AUTH')]) {
 script {
 docker.build('$APP_IMAGE_NAME-$APP_HASH', '-f ./db/Dockerfile ./<app repo name>')
 docker.withRegistry('https://$HARBOR_REGISTRY', '<your harbor credential name>') {
