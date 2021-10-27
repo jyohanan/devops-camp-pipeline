@@ -31,8 +31,7 @@ withCredentials([usernameColonPassword(credentialsId: jyohanan-harbor-auth, vari
 script {
 docker.build('$APP_IMAGE_NAME-$APP_HASH', '-f ./db/Dockerfile ./<app repo name>')
 docker.withRegistry('https://$HARBOR_REGISTRY', '<your harbor credential name>') {
-sh 'docker tag $APP_IMAGE_NAME-
-$APP_HASH $HARBOR_REGISTRY/$HARBOR_PROJECT/$APP_IMAGE_NAME:$APP_HASH-$PIPELINE_HASH'
+sh 'docker tag $APP_IMAGE_NAME-$APP_HASH $HARBOR_REGISTRY/$HARBOR_PROJECT/$APP_IMAGE_NAME:$APP_HASH-$PIPELINE_HASH'
 sh 'docker push $HARBOR_REGISTRY/$HARBOR_PROJECT/$APP_IMAGE_NAME:$APP_HASH-
 $PIPELINE_HASH'
 }
