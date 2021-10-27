@@ -5,3 +5,4 @@ RUN /bin/sh -c 'pip install --no-cache-dir --index-url
 https://nexus.dev.afsmtddso.com/repository/jyohanan-nexus-repo/simple -r requirements.txt'
 ENTRYPOINT ["python"]
 CMD ["server.py"]
+
